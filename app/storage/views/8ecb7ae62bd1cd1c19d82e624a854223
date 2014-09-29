@@ -1,0 +1,91 @@
+<?php $__env->startSection('content'); ?> 
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"><?php echo $menu->nombre; ?></h1>
+        </div>                
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                En este apartado encontrarás los archivos referentes al tema
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12"> 
+                        <div class="form-group">
+                            <label>Lista de archivos disponibles</label> <br />
+                            <?php foreach($archivos as $archivo): ?>
+                                <div class="col-md-6">
+                                    <a href="#" data-toggle="modal" data-target="#myModal"><?php echo $archivo->nombre; ?></a>
+                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Descarga de archivo</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label><?php echo $archivo->nombre; ?></label>
+                                                    <br />
+                                                    <?php echo $archivo->descripcion; ?>
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                                    <a class="btn btn-primary" href="<?php echo URL::to('/') . '/paginas/download/' . $archivo->id; ?>" target="_blank" >Descargar</a>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <?php if(Auth::user()->role_id == 1): ?>
+                                    <button type="button" class="btn btn-danger btn-circle" style="margin-left: 10px;" data-toggle="modal" data-target="#myModal_<?php echo $archivo->id; ?>"><i class="fa fa-times"></i></button>
+                                    <div class="modal fade" id="myModal_<?php echo $archivo->id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                    <h4 class="modal-title" id="myModalLabel">Eliminar archivo</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    ¿Desea eliminar el archivo <strong><?php echo $archivo->nombre; ?></strong>?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" id="closeModal_<?php echo $archivo->id; ?>" class="btn btn-default" data-dismiss="modal">No</button>
+                                                    <button type="button" onclick="borrarArchivo(<?php echo $archivo->id; ?>)" class="btn btn-danger">Si</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endforeach; ?>                                                      
+                        </div>                                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<script>
+    
+    function borrarArchivo(id){ 
+        $.post( "<?php echo URL::to('/'); ?>" + "/paginas/eliminar/" + id)        
+        .done(function( msg ) {
+            $('#closeModal_' + id).click();
+            location.reload();
+            //alert(msg);
+        })
+        .fail(function( msg ) {
+            alert( msg );
+        });
+    }
+</script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

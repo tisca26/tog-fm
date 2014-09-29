@@ -1,0 +1,18 @@
+<?php if(Session::has('login_errors')): ?>
+  <span class="error">Username or password incorrect.</span>
+<?php endif; ?>
+ 
+<?php echo Form::open(array('route' => 'session.store')); ?>
+
+ 
+  <p><?php echo Form::label('email', 'Email'); ?>
+
+  <?php echo Form::text('email'); ?></p>
+ 
+  <p><?php echo Form::label('password', 'Password'); ?>
+
+  <?php echo Form::password('password'); ?></p>
+ 
+  <p><?php echo Form::submit('Submit'); ?></p>
+ 
+<?php echo Form::close(); ?>

@@ -1,0 +1,20 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">                    
+            <?php if($role->id === 1 || $role->nombre === 'INTERNO'): ?>
+                <li>
+                    <a href="<?php echo URL::to('/'); ?>"><i class="fa fa-upload fa-fw"></i> Carga de documentos</a>
+                </li>
+            <?php endif; ?>
+            
+            <?php foreach($menus as $menu): ?>
+                <li>
+                    <a href="<?php echo URL::to('/'); ?>/paginas/<?php echo $menu->id; ?>"><i class="fa fa-sitemap fa-fw"></i><?php echo $menu->nombre; ?></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <!-- /#side-menu -->
+    </div>
+    <!-- /.sidebar-collapse -->
+</nav>
+<!-- /.navbar-static-side --> 

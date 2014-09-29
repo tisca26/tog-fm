@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>APISA MÉXICO FILE MANAGER</title>
+
+    <link rel="shortcut icon" href="<?php echo URL::to('/'); ?>/assets/img/favicon.ico">
+    <!-- Core CSS - Include with every page -->
+    <link href="<?php echo URL::to('/'); ?>/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo URL::to('/'); ?>/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="<?php echo URL::to('/'); ?>/assets/css/sb-admin.css" rel="stylesheet">   
+    <style>
+        #page-wrapper { 
+            background-image: url('<?php echo URL::to("/"); ?>/assets/img/tog opa.png');              
+            background-attachment: fixed;            
+        }
+    </style>
+</head>
+
+<body>
+    <!-- /#wrapper -->
+
+    <!-- Core Scripts - Include with every page -->
+    <!-- Core Scripts - Include with every page -->
+    <script src="<?php echo URL::to('/'); ?>/assets/js/jquery-1.10.2.js"></script>
+    <script src="<?php echo URL::to('/'); ?>/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo URL::to('/'); ?>/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="<?php echo URL::to('/'); ?>/assets/js/sb-admin.js"></script>    
+    <div id="wrapper">
+        <?php echo $__env->make('parts.top', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php echo $__env->make('parts.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        
+        <?php echo $__env->yieldContent('content'); ?>
+        <!-- /#page-wrapper -->
+    </div>
+</body>
+
+</html>

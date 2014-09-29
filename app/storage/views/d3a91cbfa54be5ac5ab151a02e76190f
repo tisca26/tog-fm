@@ -1,0 +1,15 @@
+<h1>Se realizó el registró de <?php echo $nombre; ?> <?php echo $apellidos; ?></h1>
+
+<p>
+    El usuario <?php echo $nombre; ?> <?php echo $apellidos; ?> con username: <?php echo $username; ?> realizó su preregistro.      
+</p>
+<p>
+    Proviene de la empresa <?php echo $empresa; ?> que se dedica a <?php echo $giro; ?> y su email es <?php echo $email; ?>
+
+</p>
+
+
+<p>Favor de ponerse en contacto con dicho usuario para su autorización.</p>
+
+
+<p>¡Que tengas un excelente día!.</p>

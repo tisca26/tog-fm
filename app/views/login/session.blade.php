@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Open Group México</title>
+
+    <!-- Core CSS - Include with every page -->
+    <link href="<?php echo URL::to('/'); ?>/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo URL::to('/'); ?>/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="shortcut icon" href="<?php echo URL::to('/'); ?>/assets/img/favicon.ico">
+    <!-- SB Admin CSS - Include with every page -->
+    <link href="<?php echo URL::to('/'); ?>/assets/css/sb-admin.css" rel="stylesheet">
+    <!-- Page-Level Plugin CSS - Buttons -->
+    <link href="<?php echo URL::to('/'); ?>/assets/css/plugins/social-buttons/social-buttons.css" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><img src="{{URL::to('/')}}/assets/img/tog logo.png" style="width: 5%;">Ingreso a The Open Group México</h3>
+                    </div>
+                    <div class="panel-body">                        
+                        <form role="form" id="loginForm" action="<?php echo URL::to('/'); ?>/login/ingresa" method="POST">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="email" type="text" id="email" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" id="password" value="">
+                                </div>
+
+                                <input id="loginBtn2" type="submit" name="submit" class="btn btn-lg btn-primary btn-block" value="Ingresar">
+                            </fieldset>                            
+                        </form>
+                    </div>
+                </div>
+                <a class="btn btn-block btn-social btn-facebook" href="{{$helper->getLoginUrl()}}">
+                    <i class="fa fa-facebook"></i> Ingresar con Facebook
+                </a>
+                <a href="{{URL::to('/') . '/preregistro'}}" class="btn btn-block btn-social btn-tumblr">
+                    <i class="glyphicon glyphicon-list-alt"></i> Pre registro
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        html, body, container { 
+            background-color: white;
+            background-image: url('{{URL::to("/")}}/assets/img/tog opa.png');              
+            background-attachment: fixed;            
+        }
+    </style>
+    <!-- Core Scripts - Include with every page -->
+    <script src="<?php echo URL::to('/'); ?>/assets/js/jquery-1.10.2.js"></script>
+    <script src="<?php echo URL::to('/'); ?>/assets/js/bootstrap.min.js"></script>
+    <script src="<?php echo URL::to('/'); ?>/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="<?php echo URL::to('/'); ?>/assets/js/sb-admin.js"></script>
+
+</body>
+
+</html>
+

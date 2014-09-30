@@ -15,11 +15,11 @@ class BaseController extends Controller {
         }
     }   
     
-    protected function createLogApisa($user, $accion, $descripcion) {
+    protected function createLogApisa($username, $accion, $descripcion) {
         $log = new LogApisa;
-        $log->username = $user->username;
+        $log->username = $username;
         $log->accion = $accion;
-        $log->descripcion = $descripcion . $user->username;
+        $log->descripcion = $descripcion . $username;
         $log->save();
     }
 

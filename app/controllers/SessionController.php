@@ -76,7 +76,7 @@ class SessionController extends BaseController {
     {
         $count = User::where('username', '=', $user_profile->getId())->count();
         if ($count > 0){
-            if (Auth::attempt(array('username' => $user_profile->getId(), 'password' => Hash::make('4CC3S4C0NFb'), 'estatus' => '1' ))){            
+            if (Auth::attempt(array('username' => $user_profile->getId(), 'password' => '4CC3S4C0NFb', 'estatus' => '1' ))){            
                 return $this->preparaIndex();
             }else{
                 return Redirect::to('/login')->with('not_auth', 'No se ha aprobado su ingreso, espere al correo electrónico de confirmación');

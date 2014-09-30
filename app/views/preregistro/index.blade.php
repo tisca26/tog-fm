@@ -111,7 +111,10 @@
                                     <div class="form-group">                            
                                         <button type="submit" class="btn btn-outline btn-primary col-md-12" id="submit_button">Enviar</button>
                                     </div>
-                                </div>                                                                                            
+                                </div> 
+                                @if($session == TRUE)                                
+                                <input type="hidden" name="byFb" value="{{$user->getId()}}">
+                                @endif
                             </fieldset>                            
                         </form>
                     </div>

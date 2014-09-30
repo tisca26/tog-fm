@@ -21,6 +21,12 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="login-panel panel panel-default">
+                    @if(Session::has('not_auth'))
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{Session::get('not_auth')}}                    
+                    </div>
+                    @endif
                     <div class="panel-heading">
                         <h3 class="panel-title"><img src="{{URL::to('/')}}/assets/img/tog logo.png" style="width: 5%;">Ingreso a The Open Group México</h3>
                     </div>

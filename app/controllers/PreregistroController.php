@@ -24,7 +24,9 @@ class PreregistroController extends BaseController{
         {
             return Redirect::to('/preregistro')->withInput()->withErrors($validation);
         }
-        $username = $this->generateUsername(Input::get('nombre'), Input::get('apellidos'));
+        
+        $username = Input::get('byFb',
+                $this->generateUsername(Input::get('nombre'), Input::get('apellidos')));
         
         $user = new User;
         $user->nombre = Input::get('nombre');
@@ -47,7 +49,7 @@ class PreregistroController extends BaseController{
         
         $this->createLogApisa($user, 'Preregistro a la herramienta', 'Se realizó el preregistro a la herramienta el usuario: ');
         
-        return Redirect::to('/preregistro/exito')->with('msg', 'Se ha registrado con éxito, recibirá un correo de notificación con el alta definitiva de su usuario por parte de The Open Group México');        
+        return Redirect::to('/preregistro/exito')->with('msg', 'Se ha registrado con éxito, una vez que el agente encargado apruebe su solicitud recibirá un correo de notificación con el alta definitiva de su usuario por parte de The Open Group México');        
     }
     
     public function getExito()

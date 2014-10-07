@@ -6,7 +6,7 @@ use \Facebook\FacebookRequest;
 use \Facebook\GraphUser;
 
 session_start();
-FacebookSession::setDefaultApplication('720066458042122','576a44571d734ec6499927e1afd32a60');
+FacebookSession::setDefaultApplication(Config::get('facebook.AppId'), Config::get('facebook.AppSecret'));
 class SessionController extends BaseController {
 
     public function getIndex()
@@ -105,10 +105,7 @@ class SessionController extends BaseController {
         }
         return Redirect::to($direccion)->with('user', serialize($user))->with('role', serialize($role));
     }
-    
-    private function simpleLogin($user_profile) {
         
-    }
     /*
     public function anyLogin()
     {

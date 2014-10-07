@@ -15,4 +15,8 @@ class FileApisa extends Eloquent implements UserInterface, RemindableInterface{
      */
     protected $table = 'files';
     
+    public function download_history(){
+        return $this->hasMany('Download_history', 'file_id');
+    }
+    
 }

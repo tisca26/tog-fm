@@ -35,7 +35,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                                    <a class="btn btn-primary" href="{{URL::to('/') . '/paginas/download/' . $archivo->id}}" target="_blank" >Descargar</a>
+                                                    <a class="btn btn-primary" href="{{URL::to('/') . '/paginas/download/' . $archivo->id . '/' . $menu->id}}" target="_blank" >Descargar</a>                                                    
                                                 </div>
                                             </div>
                                             <!-- /.modal-content -->

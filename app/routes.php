@@ -41,6 +41,7 @@ View::composer('parts.menu', 'MenuComposer');
  * Asignacion de controller
  */
 
+Route::controller('resena', 'ResenaController');
 Route::controller('nda', 'NdaController');
 Route::controller('preregistro', 'PreregistroController');
 Route::controller('menus', 'MenusController');

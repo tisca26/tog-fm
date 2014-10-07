@@ -43,12 +43,12 @@ class IndexController extends ProtectedController {
             echo "Tamaño: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
             //echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";    
             //$fk_menu = $_POST['fk_menu'];
-            if (file_exists("uploads/" . $nombreArchivo)) {
+            if (file_exists(public_path() . '/files/' . $nombreArchivo)) {
                 echo '<p style="color:red;">Estatus: Error </p>';
                 echo $nombreArchivo . " ya existe. ";
             } else {  
                 echo '<p style="color:green;">Estatus: OK </p>';
-                Input::file('file')->move(storage_path() . '/uploads/', $nombreArchivo);
+                Input::file('file')->move(public_path() . '/files/', $nombreArchivo);
                 //move_uploaded_file($_FILES["file"]["tmp_name"], __DIR__. "/storage/uploads/" . $nombreArchivo);
                 foreach ($menu_array as $menu) {
                     $file = new FileApisa;
@@ -60,7 +60,7 @@ class IndexController extends ProtectedController {
                     $file->save();
                 }
 
-                echo "Almacenado en: " . storage_path() . '/uploads/' . $nombreArchivo . '<br />';
+                echo "Almacenado en: " . public_path() . '/files/' . $nombreArchivo . '<br />';
                 //echo $test2;      
             }
           }

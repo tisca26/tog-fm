@@ -33,6 +33,10 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         return $this->belongsTo('Role');
     }
     
+    public function download_history(){
+        return $this->hasMany('DownloadHistory', 'user_id');
+    }
+    
     /*
      * Retrive user and role
      */

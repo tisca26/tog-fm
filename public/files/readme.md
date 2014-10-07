@@ -1,0 +1,1 @@
+Public directory not used because the site is not in root

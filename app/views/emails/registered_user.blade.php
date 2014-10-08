@@ -11,4 +11,4 @@
 <p>Favor de ponerse en contacto con dicho usuario para su autorización.</p>
 
 
-<p>¡Que tengas un excelente día!.</p>
+<p>¡Que tengas un excelente día!</p>

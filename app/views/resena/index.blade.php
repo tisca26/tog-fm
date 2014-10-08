@@ -37,8 +37,9 @@ $role = unserialize (Session::get('role'));
     </div>
     <div class="row">
         <div class="panel panel-default">
+            @if($msg == 'si')
             <div class="panel-heading">
-                Carga de reseña para el archivo 
+                Carga de reseña para el archivo <strong>{{$historial->file()->get()->first()->nombre}}</strong>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -50,6 +51,7 @@ $role = unserialize (Session::get('role'));
                             <div class="form-group">
                                 <label>Seleccione el archivo</label>
                                 <input type="file" name="file">
+                                <input type="hidden" name="download_history_id" value="{{$historial->id}}">
                             </div> 
                             <div class="row">                                            
                                 <div class="col-md-3 col-md-offset-11">
@@ -66,7 +68,23 @@ $role = unserialize (Session::get('role'));
                         <div id="status"></div>
                     </div>                                
                 </div>
-            </div>                    
+            </div>
+            @else
+            <div class="panel-heading">
+                No ha descargado ningún documento
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form role="form" id="form_upload">
+                            <div class="form-group">
+                                <label>No ha descargado ningún documento.</label>
+                            </div>
+                        </form>                        
+                    </div>                                
+                </div>
+            </div>
+            @endif
         </div>
     </div>
     <!-- /.row -->
@@ -81,6 +99,7 @@ $role = unserialize (Session::get('role'));
         $('form').ajaxForm({  
             beforeSend: function() {
                 status.empty();
+                status.html('Espere por favor...'); 
                 var percentVal = '0%';
                 bar.width(percentVal)
                 percent.html(percentVal);

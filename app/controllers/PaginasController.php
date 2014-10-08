@@ -47,9 +47,9 @@ class PaginasController extends ProtectedController{
         }
         
         if(DownloadHistory::where('user_id', '=', $user_auth->id)->count() > 0){
-            if(DownloadHistory::where('user_id', '=', $user_auth->id)->where('entrega_resena', '=', 0)->count() > 0){
+            if(DownloadHistory::where('user_id', '=', $user_auth->id)->where('entrega_resena', '=', 0)->where('aprobado', '=', 0)->count() > 0){
                 $historial = DownloadHistory::where('user_id', '=', $user_auth->id)->where('entrega_resena', '=', 0)->get()->first();
-                $this->createLogApisa($user_auth->username, "Descarga sin reseña", "Intentó descargar un archivo sin subir su reseña");
+                $this->createLogApisa($user_auth->username, "Descarga sin reseña", "Intentó descargar un archivo sin subir su reseña o la validación de la misma");
                 return View::make('paginas/sin_resena')->with('historial', $historial);
             }
         }
@@ -61,7 +61,15 @@ class PaginasController extends ProtectedController{
         }
         $file= public_path(). "/files/" . $myFile->nombre;
         $headers = array( 'Content-Type: ' . $myFile->content_type, );
-        $this->createLogApisa($user_auth->username, 'ver documento', 'Ver documento ID: ' . $myFile->id . ' Nombre: ' . $myFile->nombre);        
+        $this->createLogApisa($user_auth->username, 'ver documento', 'Ver documento ID: ' . $myFile->id . ' Nombre: ' . $myFile->nombre);
+        $history = new DownloadHistory;
+        $history->user_id = $user_auth->id;
+        $history->file_id = $idFile;
+        $history->fecha_descarga = date(DATE_ATOM);
+        $history->entrega_resena = 0;
+        $history->aprobado = 0;
+        $history->save();
+        
         return Response::download($file, $myFile->nombre, $headers);
     }
     
@@ -91,6 +99,18 @@ class PaginasController extends ProtectedController{
         }
         $myFile->delete();
         return 'ok';
+    }
+    
+    public function getEnvia() {
+        $datos = array(
+            'nombre' => 'Gerry'
+        );
+        $vista = 'emails.test';
+        $correo = 'gerry.t26@gmail.com';
+        $nombre = "Tis bb";
+        $asunto = 'Otro correo sin adjunto';
+        $adjunto = public_path() . '/files/test public.pdf';
+        $this->enviaCorreo($datos, $vista, $correo, $nombre, $asunto);        
     }
     
     public function getMaximo() {

@@ -29,8 +29,8 @@
                     </div>
                     <div class="panel-body">                        
                         <p>
-                            Lo sentimos, no ha subido la reseña de su última descarga. Favor de realizar dicho proceso 
-                            para poder continuar con sus descargas.                           
+                            Lo sentimos, no ha subido o no ha sido aprobada la reseña de su última descarga. Favor de realizar dicho proceso 
+                            o esperar al correo de confirmación para poder continuar con sus descargas.                           
                         </p>                        
                     </div>
                 </div>                

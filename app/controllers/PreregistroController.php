@@ -45,7 +45,7 @@ class PreregistroController extends BaseController{
         $user->role_id = $role->id;
         $user->save();
         
-        $this->notificaRegistro($user);                
+        $this->notificaRegistro($user, 'claudia.guzman@apisamexico.com', 'Claudia Guzmán', 'Notificación de registro a The Open Group México');        
         
         $this->createLogApisa($user, 'Preregistro a la herramienta', 'Se realizó el preregistro a la herramienta el usuario: ');
         
@@ -69,12 +69,5 @@ class PreregistroController extends BaseController{
         $ape = explode(' ',trim($apellidos));
         $nom = substr($nombre, 0, 1);
         return strtolower($ape[0] . $nom . rand ( 0 , 100));
-    }
-    
-    private function notificaRegistro($user) {
-        $user_array = $user->toArray();
-        Mail::send('emails.registered_user', $user_array, function($message){
-            $message->to('claudia.guzman@apisamexico.com', 'Claudia Guzmán')->subject('Notificación de registro a The Open Group México');
-        });
-    }   
+    }         
 }

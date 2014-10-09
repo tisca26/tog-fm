@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'apisa-fm',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'APISA',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

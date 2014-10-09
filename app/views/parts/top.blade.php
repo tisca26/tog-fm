@@ -22,6 +22,8 @@
                 </li>
                 <li><a href="{{URL::to('/')}}/menus"><i class="fa fa-user fa-fw"></i> Menus</a>
                 </li>
+                <li><a href="{{URL::to('/')}}/resena/validacion"><i class="fa fa-user fa-fw"></i> Validación de reseñas</a>
+                </li>
                 <li class="divider"></li>
                 <li><a href="{{URL::to('/')}}/users"><i class="glyphicon glyphicon-list"></i> Usuarios</a>
                 </li>                                

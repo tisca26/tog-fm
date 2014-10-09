@@ -22,6 +22,39 @@ class ResenaController extends ProtectedController{
         return View::make('resena.index')->with('msg', $msg)->with('historial', $historial);
     }
     
+    public function getValidacion() {
+        if(Auth::user()->role_id == 1){
+            $modal_array = array();
+            $download_history = DownloadHistory::where('entrega_resena', '=', 1)->where('aprobado', '=', 0)->get();
+            foreach ($download_history as $dh) {
+                $review = Review::where('download_history_id', '=', $dh->id)->orderBy('id', 'DESC')->first();
+                $obj = new stdClass();
+                $obj->download_history = $dh;
+                $obj->review = $review;
+                array_push($modal_array, $obj);
+            }
+            return View::make('resena.validacion')->with('descargas', $modal_array);
+        }
+        
+        return Redirect::to('/');
+    }
+    
+    public function postAprobacion() {
+        $dh = Input::get('download_history_id');
+        $download_history = DownloadHistory::find($dh);
+        $download_history->aprobado = 1;
+        $download_history->save();
+        return Redirect::to('/resena/validacion');
+    }
+    
+    public function postRechazo() {
+        $dh = Input::get('download_history_id');
+        $download_history = DownloadHistory::find($dh);
+        $download_history->entrega_resena = 0;
+        $download_history->save();
+        return Redirect::to('/resena/validacion');
+    }
+    
     public function postCarga() {
         $allowedExts = array( "pdf", 'PDF');
         $temp = explode(".", $_FILES["file"]["name"]);

@@ -47,7 +47,7 @@ class PaginasController extends ProtectedController{
         }
         
         if(DownloadHistory::where('user_id', '=', $user_auth->id)->count() > 0){
-            if(DownloadHistory::where('user_id', '=', $user_auth->id)->where('entrega_resena', '=', 0)->where('aprobado', '=', 0)->count() > 0){
+            if(DownloadHistory::where('user_id', '=', $user_auth->id)->where('entrega_resena', '=', 0)->orWhere('aprobado', '=', 0)->count() > 0){
                 $historial = DownloadHistory::where('user_id', '=', $user_auth->id)->where('entrega_resena', '=', 0)->get()->first();
                 $this->createLogApisa($user_auth->username, "Descarga sin reseña", "Intentó descargar un archivo sin subir su reseña o la validación de la misma");
                 return View::make('paginas/sin_resena')->with('historial', $historial);

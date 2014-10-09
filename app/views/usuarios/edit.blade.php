@@ -39,6 +39,10 @@
                                 <span class="help-block" id="usuarioMensaje"></span>
                             </div>
                             <div class="form-group">
+                                <label>Email</label>
+                                <input class="form-control" name="email" value="{{$user->email}}" type="text" placeholder="Ingrese el email">                                
+                            </div>
+                            <div class="form-group">
                                 <label>Contraseña</label>
                                 <input class="form-control" name="password" type="password" placeholder="Contraseña">
                             </div>
@@ -70,7 +74,7 @@
                                 </select>
                             </div> 
                             <div class="form-group">                            
-                                <button type="submit" class="btn btn-default" id="submit_button">Guardar</button>
+                                <button type="submit" class="btn btn-default" id="submit_button">Guardar</button>                                
                             </div>
                         </form>                                                               
                     </div>                                
@@ -158,6 +162,6 @@ $('#agrega_usuario_form').bootstrapValidator({
             // Enable the submit buttons in case additional fields are not valid
             $('#togglingForm').data('bootstrapValidator').disableSubmitButtons(false);
         }
-    }); 
+    });
 </script>
 @stop

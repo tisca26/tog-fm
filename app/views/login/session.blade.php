@@ -40,7 +40,7 @@
                                     <input class="form-control" placeholder="Password" name="password" type="password" id="password" value="">
                                 </div>
 
-                                <input id="loginBtn2" type="submit" name="submit" class="btn btn-lg btn-primary btn-block" value="Ingresar">
+                                <input id="loginBtn2" type="submit" name="submit" class="btn btn-lg btn-primary btn-block" value="Iniciar sesión    ">
                             </fieldset>                            
                         </form>
                     </div>
@@ -49,7 +49,7 @@
                     <i class="fa fa-facebook"></i> Ingresar con Facebook
                 </a>
                 <a href="{{URL::to('/') . '/preregistro'}}" class="btn btn-block btn-social btn-tumblr">
-                    <i class="glyphicon glyphicon-list-alt"></i> Pre registro
+                    <i class="glyphicon glyphicon-list-alt"></i> Registrarse
                 </a>
             </div>
         </div>

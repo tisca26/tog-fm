@@ -45,10 +45,11 @@ class PreregistroController extends BaseController{
         $user->role_id = $role->id;
         $user->save();
         
-        $this->notificaRegistro($user, 'claudia.guzman@apisamexico.com', 'Claudia Guzmán', 'Notificación de registro a The Open Group México');        
+        $this->notificaRegistro($user, 'notificaciones@apisamexico.com', 'Claudia Guzmán', 'Notificación de registro a The Open Group México');        
         
         $this->createLogApisa($user, 'Preregistro a la herramienta', 'Se realizó el preregistro a la herramienta el usuario: ');
         
+        $this->notificaEnvio($user);
         return Redirect::to('/preregistro/exito')->with('msg', 'Se ha registrado con éxito, una vez que el agente encargado apruebe su solicitud recibirá un correo de notificación con el alta definitiva de su usuario por parte de The Open Group México');        
     }
     
@@ -57,6 +58,17 @@ class PreregistroController extends BaseController{
         return View::make('preregistro.exito');
     }
 
+    private function notificaEnvio($user) {
+        $datos = array(
+            'nombre'            => $user->nombre . ' ' . $user->apellidos
+        );
+        $vista = 'emails.preregistro_cliente';
+        $correo = $user->email;
+        $nombre = $user->nombre . ' ' . $user->apellidos;
+        $asunto = 'Notificación The Open Group México';        
+        $this->enviaCorreo($datos, $vista, $correo, $nombre, $asunto);
+    }
+    
     private function generateUsername($nombre, $apellidos){
         $unwanted_array = array(    
             'Š'=>'S', 'š'=>'s', 'Ž'=>'Z', 'ž'=>'z', 'À'=>'A', 'Á'=>'A', 'Â'=>'A', 'Ã'=>'A', 'Ä'=>'A', 'Å'=>'A', 'Æ'=>'A', 'Ç'=>'C', 'È'=>'E', 'É'=>'E',

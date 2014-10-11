@@ -8,7 +8,7 @@
         </button>
         
     </div>
-    <a class="navbar" href="{{URL::to('/')}}/preregistro">
+    <a class="navbar" href="{{URL::to('/')}}">
         <img class="img-responsive" src="{{URL::to('/')}}/assets/img/tog1.png" style="width:70%; margin: 0 auto;">
     </a>
     <!-- /.navbar-header -->    

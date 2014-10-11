@@ -112,6 +112,10 @@ $role = unserialize (Session::get('role'));
             complete: function(xhr) {  
                 bar.width("100%");
                 percent.html("100%");
+                if(xhr.responseText == "sin_archivo"){
+                    location.reload();
+                    return;
+                }
                 status.html(xhr.responseText);                    
                 $('form').find("input").val("");
                 document.getElementById('submit_button').disabled = 0;

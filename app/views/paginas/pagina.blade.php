@@ -20,8 +20,8 @@
                             <label>Lista de archivos disponibles</label> <br />
                             @foreach ($archivos as $archivo)
                                 <div class="col-md-6">
-                                    <a href="#" data-toggle="modal" data-target="#myModal">{{$archivo->nombre}}</a>
-                                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <a href="#" data-toggle="modal" data-target="#myModal-{{$archivo->id}}">{{$archivo->nombre}}</a>
+                                    <div class="modal fade" id="myModal-{{$archivo->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">

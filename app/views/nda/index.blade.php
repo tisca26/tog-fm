@@ -32,9 +32,10 @@
                                     Bienvenidos a la página web www.togmexico.ddns.net:8081, propiedad de The Open Group México.
                                 </p>
                                 <p>
-                                    Esta página web tiene por objeto poner a disposición del público en general de lo que es Arquitectura 
-                                    Empresarial y Arquitectura Empresarial Aplicada, así como de los servicios y actividades que al respecto 
-                                    esta representación realiza.
+                                    Esta página web tiene por objeto poner a disposición del público en generalgeneral información  importante respecto a 
+                                    lo que es Arquitectura Empresarial y Arquitectura Empresarial Aplicada  sobre la base de incitativas que The Open 
+                                    Group mantiene a nivel mundial, así como de los servicios y actividades que al respecto esta representación en México 
+                                    realiza.
                                 </p>
                                 <p>
                                     Por favor lea y revise cuidadosamente este acuerdo antes de hacer uso de esta página web. Por el uso que Usted
@@ -51,7 +52,7 @@
                                 </p>
                                 <p>
                                     <ol>
-                                        <li>Dónde estamos.</li>
+                                        <li>En dónde estamos.</li>
                                         <li>Convenio.</li>                                       
                                         <li>Derechos de autor y marcas registradas.</li>
                                         <li>Política de calidad y confidencialidad.</li>
@@ -62,7 +63,7 @@
                                 <p>
                                     <ol>
                                         <li>
-                                            Dónde estamos.
+                                            En dónde estamos.
                                             <p>
                                                 The Open Group México, tiene su domicilio comercial en Barranca del Muerto No. 210 Oficina 302, 
                                                 Colonia Guadalupe Inn Delegación Alvaro Obregon C.P. 01020 en México, Distrito Federal.
@@ -97,7 +98,7 @@
                                                 propiedad de la información contenida en el sitio señalado.
                                             </p>
                                             <p>
-                                                En caso de que el usuario transmita a The Open Group cualquier información, programas, aplicaciones, software 
+                                                En caso de que el usuario transmita a The Open Group México cualquier información, programas, aplicaciones, software 
                                                 o en general cualquier material que requiera ser licenciado a través del sitio web www.togmexico.ddns.net:8081,
                                                 el usuario otorga con este acto a The Open Group Mexico una licencia de uso  perpetua, universal, gratuita, no
                                                 exclusiva, mundial y libre de regalías, que incluye los derechos de sublicenciar, vender, reproducir, 
@@ -205,7 +206,7 @@
                                                 </li>
                                                 <li>
                                                     No obstante, la información, conceptos y opiniones publicadas en dicho sitio no necesariamente reflejan la
-                                                    posición de The Open Group México, ni de sus empleados, oficiales, directores, accionistas, licenciatarios
+                                                    posición de The Open Group México, ni de sus empleados, directores, accionistas, licenciatarios
                                                     y concesionarios (en lo sucesivo los «afiliados»).
                                                 </li>
                                                 <li>
@@ -230,6 +231,10 @@
                                                     contrario al objeto o razón de ser de la página web, así como a los ordenamientos jurídicos vigentes y,
                                                     por consiguiente, no será responsable por cualquier falla o tardanza que se genere en la eliminación de
                                                     tal material.
+                                                </li>
+                                                <li>
+                                                    El usuario perderá derecho de uso sobre la información alojada si en un lapso de 45 días naturales no 
+                                                    accede al sitio. Además, el usuario podrá descargar un máximo de 5 documentos.
                                                 </li>
                                             </ol>
                                         </li>

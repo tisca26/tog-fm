@@ -40,11 +40,7 @@ class PaginasController extends ProtectedController{
      * Solo se permite 5 descargas por usuario
      */
     public function getDownload($idFile, $idMenu) {                        
-        $user_auth = User::find(Auth::user()->id);
-        if($user_auth->download_history()->count() > CatalogApisa::$MAX_DOWNLOADS){
-            $this->createLogApisa($user_auth->username, "Descarga máxima", "Intentó descargar un archivo pero excedió el límite");
-            return View::make('paginas/maximo');
-        }
+        $user_auth = User::find(Auth::user()->id);        
         
         if(DownloadHistory::where('user_id', '=', $user_auth->id)->count() > 0){
             if(DownloadHistory::where('user_id', '=', $user_auth->id)->where('entrega_resena', '=', 0)->orWhere('aprobado', '=', 0)->count() > 0){
@@ -52,6 +48,11 @@ class PaginasController extends ProtectedController{
                 $this->createLogApisa($user_auth->username, "Descarga sin reseña", "Intentó descargar un archivo sin subir su reseña o la validación de la misma");
                 return View::make('paginas/sin_resena')->with('historial', $historial);
             }
+        }
+        
+        if($user_auth->download_history()->count() >= CatalogApisa::$MAX_DOWNLOADS){
+            $this->createLogApisa($user_auth->username, "Descarga máxima", "Intentó descargar un archivo pero excedió el límite");
+            return View::make('paginas/maximo');
         }
         
         $myFile = FileApisa::find($idFile);

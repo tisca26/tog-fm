@@ -44,6 +44,8 @@ class ResenaController extends ProtectedController{
         $download_history = DownloadHistory::find($dh);
         $download_history->aprobado = 1;
         $download_history->save();
+        $user = User::find($download_history->user_id);
+        $this->notificaAprobacionResena($user);
         return Redirect::to('/resena/validacion');
     }
     
@@ -52,6 +54,8 @@ class ResenaController extends ProtectedController{
         $download_history = DownloadHistory::find($dh);
         $download_history->entrega_resena = 0;
         $download_history->save();
+        $user = User::find($download_history->user_id);
+        $this->notificaRechazoResena($user);
         return Redirect::to('/resena/validacion');
     }
     
@@ -109,6 +113,28 @@ class ResenaController extends ProtectedController{
             'nombre'        => $usuario->nombre . ' ' . $usuario->apellidos            
         );
         $vista = 'emails.dictaminacion_resena';
+        $correo = 'notificaciones@opengroup.org.mx';        
+        $nombre = "Claudia Guzmán Moreno";
+        $asunto = 'Notificación de dictaminación de reseña';        
+        $this->enviaCorreo($datos, $vista, $correo, $nombre, $asunto);        
+    }
+    
+    private function notificaAprobacionResena($usuario) {
+        $datos = array(
+            'nombre'        => $usuario->nombre . ' ' . $usuario->apellidos            
+        );
+        $vista = 'emails.aprobacion_resena';
+        $correo = 'notificaciones@opengroup.org.mx';        
+        $nombre = "Claudia Guzmán Moreno";
+        $asunto = 'Notificación de dictaminación de reseña';        
+        $this->enviaCorreo($datos, $vista, $correo, $nombre, $asunto);        
+    }
+    
+    private function notificaRechazoResena($usuario) {
+        $datos = array(
+            'nombre'        => $usuario->nombre . ' ' . $usuario->apellidos            
+        );
+        $vista = 'emails.rechazo_resena';
         $correo = 'notificaciones@opengroup.org.mx';        
         $nombre = "Claudia Guzmán Moreno";
         $asunto = 'Notificación de dictaminación de reseña';        
